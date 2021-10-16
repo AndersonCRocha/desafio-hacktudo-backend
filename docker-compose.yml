@@ -1,0 +1,37 @@
+version: "3"
+services:
+  postgres:
+    container_name: postgres
+    build:
+      context: ./src/database/
+      dockerfile: postgres.Dockerfile
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=desafio-hacktudo
+    ports:
+      - "5432:5432"
+    networks:
+      - local
+
+  api:
+    container_name: desafio-hacktudo-api
+    build: .
+    image: desafio-hacktudo-api
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_HOST=postgres
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge
