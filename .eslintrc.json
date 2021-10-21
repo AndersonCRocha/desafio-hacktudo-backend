@@ -3,7 +3,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["airbnb-base"],
+  "extends": ["airbnb-base", "airbnb-typescript"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -15,11 +15,6 @@
     "linebreak-style": "off",
     "no-console": "off",
     "class-methods-use-this": "off",
-    "import/prefer-default-export": "off",
-    "import/extensions": [
-      {
-        "ts": "never"
-      }
-    ]
+    "import/prefer-default-export": "off"
   }
 }

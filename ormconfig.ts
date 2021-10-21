@@ -1,4 +1,6 @@
-module.exports = {
+import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
+
+const config: PostgresConnectionOptions = {
   type: "postgres",
   url: process.env.DATABASE_URL,
   entities: ['src/app/models/*.ts'],
@@ -6,9 +8,8 @@ module.exports = {
   cli: {
     migrationsDir: 'src/database/migrations',
   },
-  extra: {
-    ssl: {
-      rejectUnauthorized: false
-    }
-  }
+  migrationsRun: true,
+  uuidExtension: "uuid-ossp"
 }
+
+module.exports = config

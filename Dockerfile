@@ -12,4 +12,6 @@ WORKDIR $APP
 
 RUN yarn
 
+RUN yarn typeorm migration:run
+
 CMD ["yarn", "dev"]

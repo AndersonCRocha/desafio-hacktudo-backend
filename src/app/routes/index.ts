@@ -1,7 +1,7 @@
-import { Request, Response, Router } from 'express';
+import { Router } from "express";
+import { categoriesRouter } from "./categories";
+import { productsRouter } from "./products";
 
-const router = Router();
-
-router.get('/', (request: Request, response: Response) => response.json({ message: 'Hello World' }));
-
-export { router };
+export const router = Router()
+  .use("/categories", categoriesRouter)
+  .use("/products", productsRouter);
