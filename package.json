@@ -4,7 +4,9 @@
   "description": "Backend application for OLX hackaton",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node dist/src/index.js",
+    "start": "yarn postinstall && node dist/src/index.js",
+    "build": "tsc",
+    "postinstall": "yarn build",
     "dev": "npx nodemon -L --exec ts-node --transpile-only --files src/index.ts",
     "lint": "npx eslint --fix \"**/*.{ts,tsx}\"",
     "typeorm": "npx ts-node ./node_modules/typeorm/cli.js",
