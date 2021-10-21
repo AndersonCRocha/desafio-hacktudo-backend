@@ -1,14 +1,17 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const config = {
+module.exports = {
     type: "postgres",
     url: process.env.DATABASE_URL,
-    entities: ['src/app/models/*.ts'],
-    migrations: ['src/database/migrations/*.ts'],
+    entities: ["src/app/models/*.ts"],
+    migrations: ["src/database/migrations/*.ts"],
     cli: {
-        migrationsDir: 'src/database/migrations',
+        migrationsDir: "src/database/migrations",
     },
     migrationsRun: true,
-    uuidExtension: "uuid-ossp"
+    uuidExtension: "uuid-ossp",
+    extra: {
+        ssl: {
+            rejectUnauthorized: false,
+        },
+    },
 };
-module.exports = config;
