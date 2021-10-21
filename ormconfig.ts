@@ -8,4 +8,9 @@ module.exports = {
   },
   migrationsRun: true,
   uuidExtension: "uuid-ossp",
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
 };
