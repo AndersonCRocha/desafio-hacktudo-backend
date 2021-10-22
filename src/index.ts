@@ -11,7 +11,6 @@ dotenv.config();
 express()
   .use(cors())
   .use(express.json())
-  .use(cors)
   .use(router)
   .listen(process.env.PORT, () =>
     console.log(`🔥 Server running in http://localhost:${process.env.PORT}`)
